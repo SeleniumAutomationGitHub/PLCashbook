@@ -7,7 +7,7 @@
 				
 					<methods>
 						<inlcude name="loginToCashbookTest"/>
-						<exclude name="ledgerTest"/>
+						<inlcude name="ledgerTest"/>
 						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>

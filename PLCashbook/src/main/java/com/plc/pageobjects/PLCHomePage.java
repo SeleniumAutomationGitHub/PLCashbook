@@ -15,8 +15,17 @@ import com.plc.util.InitializeDriver;
 
 public class PLCHomePage {
 	
+	private Actions act = new Actions(InitializeDriver.driver);
+	
 	//Ledger Name
 	
+		//@FindBy(css="input[id='keyword']")
+		@FindBy(css="#keyword")
+		private WebElement keywordLedger;
+		
+		@FindBy(xpath="//*[@id='businesses-list']/div[1]/div[1]/div[1]/div[2]/h4")
+		private WebElement firstRow;
+		
 		@FindBy(xpath="//*[@id='businesses-list']/div")
 		private List<WebElement> allLedgersRow;
 		
@@ -98,36 +107,18 @@ public class PLCHomePage {
 		private WebElement spinner;
 		
 		
-		
-		public void ledgerClick(String clientCode){
-			
+		public void searchLedgerClick(String ledgerName){
 			try{
-				System.out.println("Available in GitHub");
-				String eachClientCode = null;
-				//System.out.println(allLedgersRow.size());
-				
-				List<WebElement> ledgerColumn = InitializeDriver.driver.findElements(By.xpath("//*[@id='businesses-list']/div[1]/div/div/div"));
-				System.out.println(ledgerColumn.size());
-				
-				List<WebElement> ledgerCell = InitializeDriver.driver.findElements(By.xpath("//*[@id='businesses-list']/div/div/div/div"));
-				System.out.println(ledgerCell.size());
-				
-				
-				for(int i=1; i<=allLedgersRow.size(); i++){
-					eachClientCode = InitializeDriver.driver.findElement(By.xpath("//*[@id='businesses-list']/div["+ i +"]/div/div/div[4]/h5")).getText();
-					System.out.println(eachClientCode);
-					if(eachClientCode.equalsIgnoreCase(clientCode)){
-						InitializeDriver.driver.findElement(By.xpath("//*[@id='businesses-list']/div["+ i +"]/div/div/div[2]/h4")).click();
-					}
-				}
+				keywordLedger.sendKeys(ledgerName);
+				act.sendKeys(Keys.ENTER).build().perform();
+				Thread.sleep(500);
+				firstRow.click();
 				
 			}catch(Exception ex){
 				ex.printStackTrace();
-				
 			}
-			
-			
 		}
+		
 		
 		
 		public void journalTabClick(){

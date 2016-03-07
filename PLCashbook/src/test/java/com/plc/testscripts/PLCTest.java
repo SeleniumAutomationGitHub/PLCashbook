@@ -89,15 +89,13 @@ public class PLCTest {
 				} catch (InterruptedException e) {
 					//e.printStackTrace();
 				}
-			  	
 		}
-		 
 		 
 		
 	//Test Cases: 01 - Verify that without any filter, all dimensions open without any error.
 	@Test(priority = 2, enabled = true)
 	public void ledgerTest(){
-			chp.ledgerClick("FEB2501");
+			chp.searchLedgerClick("MIKE17");
 		}
 		
 		
