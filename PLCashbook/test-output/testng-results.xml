@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Verified the Login Page Title Successfully...!]]>
+    </line>
+  </reporter-output>
+  <suite name="PLCashbook" duration-ms="25509" started-at="2016-03-07T11:21:15Z" finished-at="2016-03-07T11:21:41Z">
+    <groups>
+    </groups>
+    <test name="PLCashbook Results firefox" duration-ms="25509" started-at="2016-03-07T11:21:15Z" finished-at="2016-03-07T11:21:41Z">
+      <class name="com.plc.testscripts.PLCTest">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@75bd9247]" name="beforeClass" is-config="true" duration-ms="12640" started-at="2016-03-07T16:51:15Z" finished-at="2016-03-07T16:51:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@75bd9247]" name="loginToCashbookTest" duration-ms="12754" started-at="2016-03-07T16:51:28Z" data-provider="Authentication" finished-at="2016-03-07T16:51:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vlau.firmuser5@myob.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Verified the Login Page Title Successfully...!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- loginToCashbookTest -->
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@75bd9247]" name="getFailedScreenShot" is-config="true" duration-ms="1" started-at="2016-03-07T16:51:41Z" finished-at="2016-03-07T16:51:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginToCashbookTest status=SUCCESS method=PLCTest.loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@75bd9247] output=Verified the Login Page Title Successfully...!]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFailedScreenShot -->
+      </class> <!-- com.plc.testscripts.PLCTest -->
+    </test> <!-- PLCashbook Results firefox -->
+  </suite> <!-- PLCashbook -->
+</testng-results>
