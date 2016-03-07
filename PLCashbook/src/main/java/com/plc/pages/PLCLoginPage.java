@@ -1,7 +1,7 @@
 package com.plc.pages;
 
 
-import org.testng.Assert;
+import org.testng.*;
 
 import com.plc.util.InitiateBrowser;
 
