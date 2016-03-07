@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<suite name = "PLCashbook">
+<suite name = "PLCashbook" parallel = 'tests'>
 	<test name= "PLCashbook Results firefox">
 		<classes>
-			<!--  <parameter name="browser" value="firefox"/>-->
-				<class name="com.plc.testsuite.Login"/>
-					<!--  <methods>
+			<parameter name="browser" value="firefox"/>
+				<class name="com.plc.testscripts.PLCTest"/>
+				
+					<methods>
 						<inlcude name="loginToCashbookTest"/>
 						<exclude name="ledgerTest"/>
 						<exclude name="journalTest"/>
@@ -13,7 +13,25 @@
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
 						<inlcude name="getFailedScreenShot"/>
-					</methods>-->
+					</methods>
+					
 		</classes>
 	</test>
+	
+	<!--<test name= "CashbookPL Results Chrome">
+		<classes>
+			<parameter name="browser" value="chrome"/>
+				<class name="com.cashbook.testscripts.CBPLTest"/>
+				
+					<methods>
+						<inlcude name="loginToCashbookTest"/>
+						<exclude name="journalTest"/>
+						<exclude name="journalLineEntryTest"/>
+						<exclude name="deleteTest"/>
+						<exclude name="transactionsCountTest"/>
+						<inlcude name="getFailedScreenShot"/>
+					</methods>
+		</classes>
+	</test>-->
+	
 </suite>
