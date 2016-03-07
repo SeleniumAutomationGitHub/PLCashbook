@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name = "PLCashbook">
+	<test name= "PLCashbook Results firefox">
+		<classes>
+			<!--  <parameter name="browser" value="firefox"/>-->
+				<class name="com.plc.testsuite.Login"/>
+					<!--  <methods>
+						<inlcude name="loginToCashbookTest"/>
+						<exclude name="ledgerTest"/>
+						<exclude name="journalTest"/>
+						<exclude name="journalLineEntryTest"/>
+						<exclude name="deleteTest"/>
+						<exclude name="transactionsCountTest"/>
+						<inlcude name="getFailedScreenShot"/>
+					</methods>-->
+		</classes>
+	</test>
+</suite>
