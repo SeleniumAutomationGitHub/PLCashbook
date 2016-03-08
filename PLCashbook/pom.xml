@@ -15,6 +15,7 @@
   			<groupId>org.testng</groupId>
   			<artifactId>testng</artifactId>
   			<version>6.8.8</version>
+  			<!-- <scope>test<scope> --> <!-- commented because it causes throwing compilation error package org.testng does not exist in jenkins while pointing to GitHub -->
 		</dependency>
 
 		<dependency>
