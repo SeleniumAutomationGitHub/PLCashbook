@@ -13,7 +13,6 @@ import com.plc.util.InitializeDriver;
 
 public class PLCLoginPage {
 	
-	//ScreenShotScript sss = new ScreenShotScript();
 	
 	@FindBy(id="UserName")
 	public WebElement userName;
@@ -22,7 +21,7 @@ public class PLCLoginPage {
 	private WebElement password;
 	
 	@FindBy(xpath="html/body/div[1]/div/div/div/div/form/button")
-	private WebElement loginBtn;
+	public static WebElement loginBtn;
 	
 		
 	public void verifyLoginPageTitle(){
@@ -31,8 +30,7 @@ public class PLCLoginPage {
 			if(com.plc.util.InitializeDriver.driver.getTitle() !=null)
 			{
 				Thread.sleep(1000);
-				//ScreenShotScript.getScreenShot("yyy-MMM-dd hh-mm-ss", "CBTitle", "png");
-				Assert.assertEquals(com.plc.util.InitializeDriver.driver.getTitle(), "Sign in to MYOB - MYOB", "Login Title validation failed");
+				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Sign in to MYOB - MYOB", "Login Title validation failed");
 			}else{
 				System.out.println("URL title can't be blank.");					
 			}
@@ -51,7 +49,6 @@ public class PLCLoginPage {
 			Thread.sleep(3000);
 			
 			if(username !=null && !username.equals("") && passwd !=null && !passwd.equals("")  ){
-				
 				
 				userName.clear();
 				userName.sendKeys(username);

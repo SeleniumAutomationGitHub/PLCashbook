@@ -25,8 +25,8 @@ import com.plc.util.ScreenShotScript;
 public class PLCTest {
 	
 	
-		public PLCLoginPage clp;
-		public PLCHomePage chp;
+		public PLCLoginPage lp;
+		public PLCHomePage hp;
 		public ScreenShotScript sss;
 		
 		@Parameters("browser")
@@ -39,14 +39,14 @@ public class PLCTest {
 			InitializeDriver.driver.get("https://burwood.cashbook.dev.myob.com");
 			InitializeDriver.driver.manage().window().maximize();
 			
-			clp = PageFactory.initElements(InitializeDriver.driver, PLCLoginPage.class);
-			chp = PageFactory.initElements(InitializeDriver.driver, PLCHomePage.class);
+			lp = PageFactory.initElements(InitializeDriver.driver, PLCLoginPage.class);
+			hp = PageFactory.initElements(InitializeDriver.driver, PLCHomePage.class);
 			sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
 		}
 		
 		
 		/*@Parameters("browser")
-		@BeforeTest(enabled=true)
+		@BeforeTest(enabled=false)
 		public void beforeTestInitialize(String browser ) {
 			try {
 				
@@ -55,8 +55,8 @@ public class PLCTest {
 			  
 				//http://B1403F2D.TLP.ads.valuelabs.net4445 , http://172.25.32.36:4445
 			
-				clp = PageFactory.initElements(InitializeDriver.driver, CBPLLoginPage.class);
-				chp = PageFactory.initElements(InitializeDriver.driver, CBPLHomePage.class);
+				lp = PageFactory.initElements(InitializeDriver.driver, CBPLLoginPage.class);
+				hp = PageFactory.initElements(InitializeDriver.driver, CBPLHomePage.class);
 				sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
 				
 			} catch (MalformedURLException e) {
@@ -76,10 +76,10 @@ public class PLCTest {
 	@Test(dataProvider = "Authentication", priority=1, enabled=true )
 	public void loginToCashbookTest(String username, String passwd) throws Exception{
 			
-			 	clp.verifyLoginPageTitle();
+			 	lp.verifyLoginPageTitle();
 			  	Reporter.log("Verified the Login Page Title Successfully...!");
 			  
-			  	clp.loginToCashbook(username, passwd );
+			  	lp.loginToCashbook(username, passwd );
 			  	//Reporter.log("Login into Cashbook by : " + clp.userNameText.getText() + " successfully and navigating to home page");
 			  	
 			  	System.out.println("Login successfully.");
@@ -92,17 +92,17 @@ public class PLCTest {
 		}
 		 
 		
-	//Test Cases: 01 - Verify that without any filter, all dimensions open without any error.
+	//Test Cases: 02 - Search the ledger Name and click on it.
 	@Test(priority = 2, enabled = true)
 	public void ledgerTest(){
-			chp.searchLedgerClick("MIKE17");
+			hp.searchLedgerClick("MIKE17hhh");
 		}
 		
 		
 		
 	@Test(priority = 3, enabled = true)
 	public void journalTest(){
-			chp.journalTabClick();
+			hp.journalTabClick();
 		}
 
 
@@ -116,21 +116,26 @@ public class PLCTest {
 
 	@Test(dataProvider = "Transcations", priority = 4, enabled = true)
 	public void journalLineEntryTest(String notes, String firstLineDesc, String creditDebitAmount, String secondLineDesc){
-		chp.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
+		hp.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
 		
 	}
 
 
 	@Test(priority = 5, enabled = true)
 	public void deleteTest() throws Exception{
-		chp.deleteTransaction();
+		hp.deleteTransaction();
 	}
 	
 
 	@Test(priority = 6, enabled = true)
 	public void transactionsCountTest() throws Exception{
-		chp.transactionsCount();
+		hp.transactionsCount();
 		
+	}
+	
+	@Test(priority = 7, enabled = true)
+	public void logOutTest(){
+		hp.logOut();
 	}
 	
 	@AfterMethod(enabled = true)

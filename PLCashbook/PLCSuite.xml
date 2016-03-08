@@ -6,13 +6,15 @@
 				<class name="com.plc.testscripts.PLCTest"/>
 				
 					<methods>
-						<inlcude name="loginToCashbookTest"/>
-						<inlcude name="ledgerTest"/>
+						<include name="loginToCashbookTest"/>
+						<include name="ledgerTest"/>
 						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
-						<inlcude name="getFailedScreenShot"/>
+						<include name="logOutTest"/>
+						<include name="getFailedScreenShot"/>
+						
 					</methods>
 					
 		</classes>
@@ -24,12 +26,12 @@
 				<class name="com.cashbook.testscripts.CBPLTest"/>
 				
 					<methods>
-						<inlcude name="loginToCashbookTest"/>
+						<include name="loginToCashbookTest"/>
 						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
-						<inlcude name="getFailedScreenShot"/>
+						<include name="getFailedScreenShot"/>
 					</methods>
 		</classes>
 	</test>-->

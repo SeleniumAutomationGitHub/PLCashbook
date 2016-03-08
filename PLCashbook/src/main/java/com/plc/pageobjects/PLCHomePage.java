@@ -1,6 +1,7 @@
 package com.plc.pageobjects;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,17 +11,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
 
 public class PLCHomePage {
 	
-	private Actions act = new Actions(InitializeDriver.driver);
+	//Data Members of the class
+	
+	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 10);
+	private Actions actObj = new Actions(InitializeDriver.driver);
 	
 	//Ledger Name
 	
-		//@FindBy(css="input[id='keyword']")
-		@FindBy(css="#keyword")
+		@FindBy(css="#keyword") // or @FindBy(css="input[id='keyword']")
 		private WebElement keywordLedger;
 		
 		@FindBy(xpath="//*[@id='businesses-list']/div[1]/div[1]/div[1]/div[2]/h4")
@@ -28,6 +32,13 @@ public class PLCHomePage {
 		
 		@FindBy(xpath="//*[@id='businesses-list']/div")
 		private List<WebElement> allLedgersRow;
+		
+		@FindBy(how = How.XPATH, using = "//*[@id='top-nav-menu']/ul/li[2]/a/b")
+		private WebElement logOutIcon;
+		
+		@FindBy(xpath="//*[@id='top-nav-menu']/ul/li[2]/ul/li[4]/a[@data-event='logout']")
+		private WebElement logOutLink;
+		
 		
 		@FindBy(how = How.XPATH,  using = "//*[@id='business-nav-menu']/ul/li[3]/a[@class='general-journals-link']")
 		private WebElement journalTabLink;
@@ -69,13 +80,11 @@ public class PLCHomePage {
 		@FindBy(how = How.XPATH,  using = "//*[@id='general-journal-lines-table']/div/table/tbody/tr[2]/td[1]/div[@data-cid='view1942']")
 		private WebElement secondLineAccountCode;
 		
-		
 		@FindBy(how = How.XPATH,  using = "//*[@id='general-journal-lines-table']/div/table/tbody/tr[2]/td[1]/div/div/span/i")
 		private WebElement secondLineAccountCodeDrop;
 		
 		@FindBy(how = How.XPATH,  using = "//*[@id='general-journal-lines-table']/div/table/tbody/tr[2]/td[1]/div/div/div/table/tbody/tr[4]/td[1]/a['1-1800']")
 		private WebElement secondLineAccountCodeSelect;
-		
 		
 		@FindBy(how = How.XPATH,  using = "//*[@id='general-journal-lines-table']/div/table/tbody/tr[2]/td[2]/div/input[@id='description']")
 		private WebElement secondLineAccountCodeDescription;
@@ -85,7 +94,6 @@ public class PLCHomePage {
 		
 		@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2]")
 		private WebElement addBtn;
-		
 		
 		
 		
@@ -107,18 +115,26 @@ public class PLCHomePage {
 		private WebElement spinner;
 		
 		
+		
 		public void searchLedgerClick(String ledgerName){
 			try{
-				keywordLedger.sendKeys(ledgerName);
-				act.sendKeys(Keys.ENTER).build().perform();
-				Thread.sleep(500);
-				firstRow.click();
-				
+				if(allLedgersRow.size()>0){
+					keywordLedger.sendKeys(ledgerName);
+					keywordLedger.sendKeys(Keys.ENTER);
+					Thread.sleep(500);
+					
+					if(allLedgersRow.size()>0){
+						firstRow.click();
+					}else{
+						System.out.println("No records found for this ledger: " + ledgerName);
+					}
+				}else{
+					System.out.println("No records found.");
+				}
 			}catch(Exception ex){
 				ex.printStackTrace();
 			}
 		}
-		
 		
 		
 		public void journalTabClick(){
@@ -235,56 +251,47 @@ public class PLCHomePage {
 		
 
 
-
-
 	public void deleteTransaction() throws Exception{
-		
-		WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 5);
-		
-		
 		int rowSize=0;
-		Actions actObj = new Actions(InitializeDriver.driver);
-		
-		for(int i=0; i<3000; i++){
-			
-			//actObj.keyDown(Keys.PAGE_DOWN).build().perform();
-			actObj.sendKeys(Keys.PAGE_DOWN).build().perform();
-			Thread.sleep(500);
-			
-		}
-		
-		rowSize = rowsCount.size();
-		System.out.println("Row size is : " + rowSize );
-		
-		for(int i=0; i<rowSize || i>rowSize; i++){
-			
-			if(rowSize > 49){
-				//actObj.sendKeys(Keys.PAGE_DOWN).build().perform();
-				actObj.sendKeys(Keys.ARROW_DOWN).build().perform();
+		try{
+			for(int i=0; i<3000; i++){
+				//actObj.keyDown(Keys.PAGE_DOWN).build().perform();
+				actObj.sendKeys(Keys.PAGE_DOWN).build().perform();
 				Thread.sleep(500);
 			}
 			
-			//actObj.sendKeys(Keys.PAGE_UP).build().perform();
-			if(lineTrans.isDisplayed() && lineTrans.isEnabled() ){
+			rowSize = rowsCount.size();
+			//System.out.println("Row size is : " + rowSize );
+			
+			for(int i = 0; i < rowSize || i > rowSize; i++){
 				
-				lineTrans.click();
-				//Thread.sleep(500);
-				wait.until(ExpectedConditions.visibilityOf(deleteLineTrans));
+				if(rowSize > 49){
+					actObj.sendKeys(Keys.ARROW_DOWN).build().perform();
+					Thread.sleep(500);
+				}
 				
-				deleteLineTrans.click();
-				//Thread.sleep(200);
-				wait.until(ExpectedConditions.visibilityOf(confirmDeleteLineTrans));
-				
-				confirmDeleteLineTrans.click();
-				System.out.println("Yes Delete");
-				
+				//actObj.sendKeys(Keys.PAGE_UP).build().perform();
+				if(lineTrans.isDisplayed() && lineTrans.isEnabled() ){
+					
+					lineTrans.click();
+					//Thread.sleep(500);
+					wait.until(ExpectedConditions.visibilityOf(deleteLineTrans));
+					
+					deleteLineTrans.click();
+					//Thread.sleep(200);
+					wait.until(ExpectedConditions.visibilityOf(confirmDeleteLineTrans));
+					
+					confirmDeleteLineTrans.click();
+					//System.out.println("Yes Delete");
+				}
 			}
+			System.out.println("Row size is : " + rowSize );
+		}catch(Exception ex){
+			ex.printStackTrace();
 		}
-		
-		System.out.println("Row size is : " + rowSize );
-		
 	}
 
+	
 	
 	public void transactionsCount() throws Exception{
 		int counter =0;
@@ -294,17 +301,13 @@ public class PLCHomePage {
 		while(!(previousCount == rowsCount.size())){
 			 previousCount = rowsCount.size();
 			 
-			 Actions actObj = new Actions(InitializeDriver.driver);
 			 actObj.sendKeys(Keys.END).build().perform();
 			
-			 
 			 /*spin = spinner.isDisplayed();
 			 System.out.println("Spinner is displayed: " + spin);
 			 counter++;*/
 			 Thread.sleep(4000);
-			 
 		}
-		
 		System.out.println("Row size is : " + rowsCount.size() );
 		System.out.println("Transactions Count is : " + previousCount );
 		if( previousCount == rowsCount.size()){
@@ -313,10 +316,24 @@ public class PLCHomePage {
 		}else{
 			System.out.println("Fail");
 		}
-		
-		
-		
-		
 	}
+	
+	
+	public void logOut(){
+		try{
+			Thread.sleep(1000);
+			if(logOutIcon.isDisplayed() && logOutIcon.isEnabled()){
+				logOutIcon.click();
+				logOutLink.click();
+				wait.until(ExpectedConditions.visibilityOf(PLCLoginPage.loginBtn));
+				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Sign in to MYOB - MYOB", "Logout Failed");
+				System.out.println("Logout Successfully.");
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	
 
 }
