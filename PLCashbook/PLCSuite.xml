@@ -2,21 +2,19 @@
 <suite name = "PLCashbook" parallel = 'tests'>
 	<test name= "PLCashbook Results firefox">
 		<classes>
-			<parameter name="browser" value="firefox"/>
+			<parameter name="browser" value="chrome"/>
 				<class name="com.plc.testscripts.PLCTest"/>
-				
 					<methods>
 						<include name="loginToCashbookTest"/>
-						<include name="ledgerTest"/>
+						<include name="addNewBusinessTest"/>
+						<exclude name="ledgerTest"/>
 						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
-						<include name="logOutTest"/>
+						<exclude name="logOutTest"/>
 						<include name="getFailedScreenShot"/>
-						
 					</methods>
-					
 		</classes>
 	</test>
 	

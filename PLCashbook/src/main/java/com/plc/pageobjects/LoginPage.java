@@ -2,17 +2,18 @@ package com.plc.pageobjects;
 
 import java.util.NoSuchElementException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
 
 
-public class PLCLoginPage {
+public class LoginPage {
 	
+	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 10);
 	
 	@FindBy(id="UserName")
 	public WebElement userName;
@@ -25,11 +26,9 @@ public class PLCLoginPage {
 	
 		
 	public void verifyLoginPageTitle(){
-		
 		try{
 			if(com.plc.util.InitializeDriver.driver.getTitle() !=null)
 			{
-				Thread.sleep(1000);
 				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Sign in to MYOB - MYOB", "Login Title validation failed");
 			}else{
 				System.out.println("URL title can't be blank.");					
@@ -39,38 +38,26 @@ public class PLCLoginPage {
 		}
 	}
 		
-			
+		
 	
-	
-	public void loginToCashbook(String username, String passwd){
-				
+	public void loginToPLC(String username, String passwd){
 		try{
-			
-			Thread.sleep(3000);
-			
-			if(username !=null && !username.equals("") && passwd !=null && !passwd.equals("")  ){
-				
+			wait.until(ExpectedConditions.visibilityOf(loginBtn));
+			if(username !=null && !username.equals("") && passwd !=null && !passwd.equals("")){
 				userName.clear();
 				userName.sendKeys(username);
 				password.clear();
 				password.sendKeys(passwd);
-				
-				if(loginBtn.isDisplayed() && loginBtn.isEnabled()){
-					loginBtn.click();
-					//Thread.sleep(2000);
-					Assert.assertEquals(InitializeDriver.driver.getTitle(), "Cashbook", "Failed login page");
-					
-				}else{
-					System.out.println("Login button is not displayed or not enabled.");					
-				}
-				
+				loginBtn.click();
+				wait.until(ExpectedConditions.visibilityOf(MyCashbookPage.getAddNewBusinessBtn()));
+				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Cashbook", "Failed login page");
 			}else{
 				System.out.println("Username and password can't be null.");
 			}
 		}catch (NoSuchElementException e) {
 			System.out.println("Element is not found ");
 		} catch (Exception e) {
-			System.out.println("Unable to click on element ");
+			System.out.println("Unable to click on element");
 		}
 	}
 

@@ -15,8 +15,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 
-import com.plc.pageobjects.PLCLoginPage;
-import com.plc.pageobjects.PLCHomePage;
+import com.plc.pageobjects.LoginPage;
+import com.plc.pageobjects.MyCashbookPage;
 import com.plc.util.DriverScriptExcel;
 import com.plc.util.InitializeDriver;
 import com.plc.util.ScreenShotScript;
@@ -25,22 +25,22 @@ import com.plc.util.ScreenShotScript;
 public class PLCTest {
 	
 	
-		public PLCLoginPage lp;
-		public PLCHomePage hp;
+		public LoginPage lp;
+		public MyCashbookPage mcp;
 		public ScreenShotScript sss;
 		
 		@Parameters("browser")
 		@BeforeTest(enabled=true)
 		  public void beforeClass(String browser) {
 			InitializeDriver.driver = InitializeDriver.launchBrowser(browser);
-			InitializeDriver.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			InitializeDriver.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			  
 			//Test Environment
 			InitializeDriver.driver.get("https://burwood.cashbook.dev.myob.com");
 			InitializeDriver.driver.manage().window().maximize();
 			
-			lp = PageFactory.initElements(InitializeDriver.driver, PLCLoginPage.class);
-			hp = PageFactory.initElements(InitializeDriver.driver, PLCHomePage.class);
+			lp = PageFactory.initElements(InitializeDriver.driver, LoginPage.class);
+			mcp = PageFactory.initElements(InitializeDriver.driver, MyCashbookPage.class);
 			sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
 		}
 		
@@ -79,7 +79,7 @@ public class PLCTest {
 			 	lp.verifyLoginPageTitle();
 			  	Reporter.log("Verified the Login Page Title Successfully...!");
 			  
-			  	lp.loginToCashbook(username, passwd );
+			  	lp.loginToPLC(username, passwd );
 			  	//Reporter.log("Login into Cashbook by : " + clp.userNameText.getText() + " successfully and navigating to home page");
 			  	
 			  	System.out.println("Login successfully.");
@@ -91,51 +91,56 @@ public class PLCTest {
 				}
 		}
 		 
+	
+	@Test(priority = 2, enabled = true)
+	public void addNewBusinessTest(){
+		mcp.addNewBusiness("MIKE125", "AutoTest", "Blank", "Ledger");
+	}
 		
 	//Test Cases: 02 - Search the ledger Name and click on it.
-	@Test(priority = 2, enabled = true)
+	/*@Test(priority = 3, enabled = true)
 	public void ledgerTest(){
-			hp.searchLedgerClick("MIKE17hhh");
-		}
+			mcp.searchLedgerClick("MIKE17klklk");
+		}*/
 		
 		
-		
+	/*	
 	@Test(priority = 3, enabled = true)
 	public void journalTest(){
-			hp.journalTabClick();
+			mcp.journalTabClick();
 		}
 
 
-	/*@DataProvider(name = "Transcations")
+	@DataProvider(name = "Transcations")
 	public Object[][] transData(){
 		
 		return ExcelUtil.getTestData(".\\input\\CashbookTestData.xls", "loadone");
 		
-	}*/
+	}
 
 
 	@Test(dataProvider = "Transcations", priority = 4, enabled = true)
 	public void journalLineEntryTest(String notes, String firstLineDesc, String creditDebitAmount, String secondLineDesc){
-		hp.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
+		mcp.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
 		
 	}
 
 
 	@Test(priority = 5, enabled = true)
 	public void deleteTest() throws Exception{
-		hp.deleteTransaction();
+		mcp.deleteTransaction();
 	}
 	
 
 	@Test(priority = 6, enabled = true)
 	public void transactionsCountTest() throws Exception{
-		hp.transactionsCount();
+		mcp.transactionsCount();
 		
 	}
-	
+*/	
 	@Test(priority = 7, enabled = true)
 	public void logOutTest(){
-		hp.logOut();
+		mcp.logOut();
 	}
 	
 	@AfterMethod(enabled = true)
