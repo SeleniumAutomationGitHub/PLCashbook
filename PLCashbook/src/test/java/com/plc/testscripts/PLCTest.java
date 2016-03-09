@@ -91,13 +91,19 @@ public class PLCTest {
 		
 		@Test(priority = 2, enabled = true)
 		public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE135", "SelTest", "Agriculture", "Ledger");
+		mcp.addNewBusiness("MIKE147", "SelAutoTest", "Construction", "Ledger");
 		}
 		
 		
 		@Test(priority = 3, enabled = true)
-		public void ledgerTest(){
-			mcp.searchLedgerClick("MIKE17klklk");
+		public void searchLedgerTest(){
+			mcp.searchLedger("MIKE138");
+			System.out.println("Searched ledger succefully.");
+		}
+		
+		@Test(priority = 4, enabled = true)
+		public void ledgerLinkClickTest(){
+			mcp.ledgerClick("MIKE141");
 		}
 		
 		

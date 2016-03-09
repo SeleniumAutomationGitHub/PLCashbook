@@ -1,7 +1,9 @@
 package com.plc.pageobjects;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,11 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
+import com.plc.util.PageElements;
 
 
 public class MyCashbookPage {
 	
-	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 10);
+	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 100);
 	private Select accountsTemplate;
 	
 	@FindBy(css="#keyword") // or @FindBy(css="input[id='keyword']")
@@ -24,6 +27,10 @@ public class MyCashbookPage {
 		
 	@FindBy(xpath="//*[@id='businesses-list']/div[1]/div[1]/div[1]/div[2]/h4")
 	private WebElement firstRow;
+	
+	@FindBy(xpath="//ul[@class='nav navbar-nav']/li/a/span")
+	private WebElement searchedBusinessName;
+	
 		
 	@FindBy(xpath="//*[@id='businesses-list']/div")	
 	private List<WebElement> allLedgersRow;
@@ -51,6 +58,9 @@ public class MyCashbookPage {
 	@FindBy(how = How.CSS, using = ".btn.btn-primary.create")
 	private WebElement addBusinessBtn;
 	
+	@FindBy(how = How.CSS, using = ".cancel.btn.btn-large.btn-default")
+	private WebElement cancelBtn;
+	
 	@FindBy(how = How.XPATH, using = "//*[@id='top-nav-menu']/ul/li[2]/a/b")
 	private WebElement logOutIcon;
 		
@@ -75,8 +85,8 @@ public class MyCashbookPage {
 			new Select(productTypeDropdown).selectByVisibleText(productType);
 			Thread.sleep(200);
 			addBusinessBtn.click();
-			Thread.sleep(1000);
-			searchLedgerClick(businessName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".cancel.btn.btn-large.btn-default")));
+			Assert.assertEquals(searchLedger(businessName), true, businessName + " not created successfully.");
 			System.out.println("Ledger " + businessName  + " added successfully.");
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -84,21 +94,39 @@ public class MyCashbookPage {
 	}
 
 //Search the ledger and click the ledger
-	public void searchLedgerClick(String ledgerName){
+	public boolean searchLedger(String ledgerName){
 		
 		try{
 			if(allLedgersRow.size()>0){
+				keywordLedger.clear();
 				keywordLedger.sendKeys(ledgerName);
 				keywordLedger.sendKeys(Keys.ENTER);
 				Thread.sleep(500);
-					
 				if(allLedgersRow.size()>0){
-					firstRow.click();
+					Assert.assertEquals(firstRow.getText(), ledgerName, "Ledger is not available");
+					return true;
 					}else{
-						System.out.println("No records found for this ledger: " + ledgerName);
+						return false;
 					}
 				}else{
-					System.out.println("No records found.");
+					return false;
+				}
+			}catch(Exception ex){
+				ex.printStackTrace();
+				return false;
+			}
+		}
+
+//Search the ledger and click the ledger
+	public void ledgerClick(String ledgerName){
+			
+		try{
+			if(searchLedger(ledgerName)){
+				firstRow.click();
+				Assert.assertEquals(searchedBusinessName.getText(), ledgerName, "Wrong ledger clicked");
+				System.out.println("Clicked the ledger sucessfully.");
+				}else{
+					System.out.println("No records found for this ledger: " + ledgerName);
 				}
 			}catch(Exception ex){
 				ex.printStackTrace();

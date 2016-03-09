@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [PLCashbook]" parallel="tests">
-  <parameter name="browser" value="firefox"/>
-  <test name="PLCashbook Results firefox(failed)" parallel="tests">
-    <parameter name="browser" value="firefox"/>
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
       <class name="com.plc.testscripts.PLCTest">
         <methods>
-          <include name="beforeClass"/>
-          <include name="loginToCashbookTest" invocation-numbers="0"/>
-          <include name="getFailedScreenShot"/>
+          <include name="searchLedgerTest"/>
+          <include name="addNewBusinessTest"/>
+          <include name="logOutTest"/>
+          <include name="loginToCashbookTest"/>
+          <include name="ledgerLinkClickTest"/>
         </methods>
       </class> <!-- com.plc.testscripts.PLCTest -->
     </classes>
-  </test> <!-- PLCashbook Results firefox(failed) -->
-</suite> <!-- Failed suite [PLCashbook] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

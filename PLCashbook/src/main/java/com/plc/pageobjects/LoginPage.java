@@ -29,7 +29,8 @@ public class LoginPage {
 		try{
 			if(InitializeDriver.driver.getTitle() !=null)
 			{
-				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Cashbook", "Login Title validation failed");
+				wait.until(ExpectedConditions.visibilityOf(loginBtn));
+				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Sign in to MYOB - MYOB", "Login Title validation failed");
 			}else{
 				System.out.println("URL title can't be blank.");					
 			}
