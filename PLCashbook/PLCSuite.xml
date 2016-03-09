@@ -12,7 +12,7 @@
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
-						<exclude name="logOutTest"/>
+						<include name="logOutTest"/>
 						<include name="getFailedScreenShot"/>
 					</methods>
 		</classes>

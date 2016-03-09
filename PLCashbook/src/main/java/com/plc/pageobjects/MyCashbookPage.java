@@ -28,12 +28,6 @@ public class MyCashbookPage {
 	@FindBy(xpath="//*[@id='businesses-list']/div")	
 	private List<WebElement> allLedgersRow;
 		
-	@FindBy(how = How.XPATH, using = "//*[@id='top-nav-menu']/ul/li[2]/a/b")
-	private WebElement logOutIcon;
-		
-	@FindBy(xpath="//*[@id='top-nav-menu']/ul/li[2]/ul/li[4]/a[@data-event='logout']")
-	private WebElement logOutLink;
-		
 	@FindBy(how = How.XPATH, using = "//*[@id='addBusiness']")
 	private static WebElement addNewBusinessBtn;
 	
@@ -57,6 +51,12 @@ public class MyCashbookPage {
 	@FindBy(how = How.CSS, using = ".btn.btn-primary.create")
 	private WebElement addBusinessBtn;
 	
+	@FindBy(how = How.XPATH, using = "//*[@id='top-nav-menu']/ul/li[2]/a/b")
+	private WebElement logOutIcon;
+		
+	@FindBy(xpath="//*[@id='top-nav-menu']/ul/li[2]/ul/li[4]/a[@data-event='logout']")
+	private WebElement logOutLink;
+	
 	
 	public static WebElement getAddNewBusinessBtn(){
 		return addNewBusinessBtn;
@@ -70,13 +70,14 @@ public class MyCashbookPage {
 			this.businessName.sendKeys(businessName);
 			Thread.sleep(500);
 			this.clientCode.sendKeys(clientCode);
-			//this.abnNumber.sendKeys(abnNumber);
+			//this.abnNumber.sendKeys(abnNumber); //This field is optional
 			new Select(accountsTemplateDropdown).selectByValue(accountsTemplate);
 			new Select(productTypeDropdown).selectByVisibleText(productType);
 			Thread.sleep(200);
 			addBusinessBtn.click();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			searchLedgerClick(businessName);
+			System.out.println("Ledger " + businessName  + " added successfully.");
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

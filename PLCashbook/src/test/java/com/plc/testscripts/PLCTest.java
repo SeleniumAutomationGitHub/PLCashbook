@@ -24,7 +24,6 @@ import com.plc.util.ScreenShotScript;
 
 public class PLCTest {
 	
-	
 		public LoginPage lp;
 		public MyCashbookPage mcp;
 		public ScreenShotScript sss;
@@ -67,41 +66,39 @@ public class PLCTest {
 				 
 		@DataProvider (name = "Authentication")
 		public Object[][] credentials() throws Exception{
-			 return DriverScriptExcel.getTestData(".\\src\\test\\resources\\InputTestData.xls", "Sheet1");
+			 return DriverScriptExcel.getTestData(".\\src\\test\\resources\\InputTestData.xls", "login");
 		}
 		 
 		 	 
-		
-	//Login the application with valid credentials 
-	@Test(dataProvider = "Authentication", priority=1, enabled=true )
-	public void loginToCashbookTest(String username, String passwd) throws Exception{
+		//Login the application with valid credentials 
+		@Test(dataProvider = "Authentication", priority = 1, enabled = true)
+		public void loginToCashbookTest(String username, String passwd) throws Exception{
+						
+			lp.verifyLoginPageTitle();
+		  	Reporter.log("Verified the Login Page Title Successfully...!");
 			
-			 	lp.verifyLoginPageTitle();
-			  	Reporter.log("Verified the Login Page Title Successfully...!");
-			  
-			  	lp.loginToPLC(username, passwd );
-			  	//Reporter.log("Login into Cashbook by : " + clp.userNameText.getText() + " successfully and navigating to home page");
+			lp.loginToPLC(username, passwd );
+			//Reporter.log("Login into Cashbook by : " + clp.userNameText.getText() + " successfully and navigating to home page");
+			System.out.println("Login successfully.");
 			  	
-			  	System.out.println("Login successfully.");
-			  	
-			  	try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					//e.printStackTrace();
-				}
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				//e.printStackTrace();
+			}
 		}
 		 
-	
-	@Test(priority = 2, enabled = true)
-	public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE125", "AutoTest", "Blank", "Ledger");
-	}
 		
-	//Test Cases: 02 - Search the ledger Name and click on it.
-	/*@Test(priority = 3, enabled = true)
-	public void ledgerTest(){
+		@Test(priority = 2, enabled = true)
+		public void addNewBusinessTest(){
+		mcp.addNewBusiness("MIKE135", "SelTest", "Agriculture", "Ledger");
+		}
+		
+		
+		@Test(priority = 3, enabled = true)
+		public void ledgerTest(){
 			mcp.searchLedgerClick("MIKE17klklk");
-		}*/
+		}
 		
 		
 	/*	
@@ -138,7 +135,7 @@ public class PLCTest {
 		
 	}
 */	
-	@Test(priority = 7, enabled = true)
+	@Test(dependsOnMethods = { "addNewBusinessTest" }, priority = 7, enabled = true)
 	public void logOutTest(){
 		mcp.logOut();
 	}
