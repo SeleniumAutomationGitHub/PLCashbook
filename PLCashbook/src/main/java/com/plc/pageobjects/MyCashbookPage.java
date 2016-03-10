@@ -20,7 +20,6 @@ import com.plc.util.PageElements;
 public class MyCashbookPage {
 	
 	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 100);
-	private Select accountsTemplate;
 	
 	
 	//@FindBy(how = How.XPATH, using = "//input[@id='keyword']")

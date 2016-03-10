@@ -18,7 +18,7 @@ public class DriverScriptExcel {
 	
 	
 	
-	//Retrieving the test data from external file (excel)
+	//Retrieving the test data from flat file (excel)
 	public static String[][] getTestData(String filePath, String sheetName) throws BiffException, IOException{
 		
 		int rowValue = 0;
@@ -38,14 +38,10 @@ public class DriverScriptExcel {
 		
 		for(int i = 1; i <= rowValue-1; i++){
 			for(int j = 0; j < columnValue; j++){
-				
 				strArryData[i-1][j]= sh.getCell(j, i).getContents();
-				
 			}
 		}
-		
 		return strArryData;
-		
 	}
 	
 	
@@ -54,12 +50,9 @@ public class DriverScriptExcel {
 		Object[][] org = DriverScriptExcel.getTestData(".\\src\\test\\resources\\InputTestData.xls", "Sheet1");
 		for(int i = 0; i< org.length; i++){
 			for(int j = 0; j < org[i].length; j++){
-				
 				System.out.println("Values at: " + org[i][j]);
 			}
 		}
 	}*/
-	
-	
 
 }
