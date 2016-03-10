@@ -91,7 +91,7 @@ public class PLCTest {
 		
 		@Test(priority = 2, enabled = true)
 		public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE147", "SelAutoTest", "Construction", "Ledger");
+		mcp.addNewBusiness("MIKE153", "SelAutoTest", "Construction", "Ledger");
 		}
 		
 		

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
     <line>
       <![CDATA[Verified the Login Page Title Successfully...!]]>
     </line>
   </reporter-output>
-  <suite name="PLCashbook" duration-ms="58337" started-at="2016-03-09T19:59:25Z" finished-at="2016-03-09T20:00:23Z">
+  <suite name="PLCashbook" duration-ms="50143" started-at="2016-03-10T13:38:34Z" finished-at="2016-03-10T13:39:24Z">
     <groups>
     </groups>
-    <test name="PLCashbook Results firefox" duration-ms="58337" started-at="2016-03-09T19:59:25Z" finished-at="2016-03-09T20:00:23Z">
+    <test name="PLCashbook Results firefox" duration-ms="50143" started-at="2016-03-10T13:38:34Z" finished-at="2016-03-10T13:39:24Z">
       <class name="com.plc.testscripts.PLCTest">
-        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="beforeClass" is-config="true" duration-ms="10981" started-at="2016-03-10T01:29:25Z" finished-at="2016-03-10T01:29:36Z">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="beforeClass" is-config="true" duration-ms="11360" started-at="2016-03-10T19:08:34Z" finished-at="2016-03-10T19:08:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="loginToCashbookTest" duration-ms="21695" started-at="2016-03-10T01:29:36Z" data-provider="Authentication" finished-at="2016-03-10T01:29:58Z">
+        <test-method status="PASS" signature="loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="loginToCashbookTest" duration-ms="19580" started-at="2016-03-10T19:08:45Z" data-provider="Authentication" finished-at="2016-03-10T19:09:05Z">
           <params>
             <param index="0">
               <value>
@@ -40,7 +40,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- loginToCashbookTest -->
-        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="3" started-at="2016-03-10T01:29:58Z" finished-at="2016-03-10T01:29:58Z">
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-03-10T19:09:05Z" finished-at="2016-03-10T19:09:05Z">
           <params>
             <param index="0">
               <value>
@@ -51,11 +51,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getFailedScreenShot -->
-        <test-method status="PASS" signature="addNewBusinessTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="addNewBusinessTest" duration-ms="14409" started-at="2016-03-10T01:29:58Z" finished-at="2016-03-10T01:30:12Z">
+        <test-method status="PASS" signature="addNewBusinessTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="addNewBusinessTest" duration-ms="13790" started-at="2016-03-10T19:09:05Z" finished-at="2016-03-10T19:09:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addNewBusinessTest -->
-        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="1" started-at="2016-03-10T01:30:12Z" finished-at="2016-03-10T01:30:12Z">
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="1" started-at="2016-03-10T19:09:19Z" finished-at="2016-03-10T19:09:19Z">
           <params>
             <param index="0">
               <value>
@@ -66,41 +66,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getFailedScreenShot -->
-        <test-method status="PASS" signature="searchLedgerTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="searchLedgerTest" duration-ms="2490" started-at="2016-03-10T01:30:12Z" finished-at="2016-03-10T01:30:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchLedgerTest -->
-        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-03-10T01:30:15Z" finished-at="2016-03-10T01:30:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=searchLedgerTest status=SUCCESS method=PLCTest.searchLedgerTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getFailedScreenShot -->
-        <test-method status="PASS" signature="ledgerLinkClickTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="ledgerLinkClickTest" duration-ms="2767" started-at="2016-03-10T01:30:15Z" finished-at="2016-03-10T01:30:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ledgerLinkClickTest -->
-        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-03-10T01:30:17Z" finished-at="2016-03-10T01:30:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ledgerLinkClickTest status=SUCCESS method=PLCTest.ledgerLinkClickTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getFailedScreenShot -->
-        <test-method status="PASS" signature="logOutTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="logOutTest" duration-ms="5703" started-at="2016-03-10T01:30:17Z" depends-on-methods="com.plc.testscripts.PLCTest.addNewBusinessTest" finished-at="2016-03-10T01:30:23Z">
+        <test-method status="PASS" signature="logOutTest()[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="logOutTest" duration-ms="5306" started-at="2016-03-10T19:09:19Z" depends-on-methods="com.plc.testscripts.PLCTest.addNewBusinessTest" finished-at="2016-03-10T19:09:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logOutTest -->
-        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="1" started-at="2016-03-10T01:30:23Z" finished-at="2016-03-10T01:30:23Z">
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@3cb5cdba]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-03-10T19:09:24Z" finished-at="2016-03-10T19:09:24Z">
           <params>
             <param index="0">
               <value>

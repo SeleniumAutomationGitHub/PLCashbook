@@ -22,7 +22,15 @@ public class MyCashbookPage {
 	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 100);
 	private Select accountsTemplate;
 	
-	@FindBy(css="#keyword") // or @FindBy(css="input[id='keyword']")
+	
+	//@FindBy(how = How.XPATH, using = "//input[@id='keyword']")
+	
+	//@FindBy(how = How.CSS, using = "#keyword")
+	//@FindBy(how = How.CSS, using = "input#keyword")
+	//@FindBy(how = How.CSS, using = "input[id='keyword']")
+	//@FindBy(css="input[id='keyword']")
+	//@FindBy(css="input#keyword")
+	@FindBy(css="#keyword")
 	private WebElement keywordLedger;
 		
 	@FindBy(xpath="//*[@id='businesses-list']/div[1]/div[1]/div[1]/div[2]/h4")
@@ -31,7 +39,6 @@ public class MyCashbookPage {
 	@FindBy(xpath="//ul[@class='nav navbar-nav']/li/a/span")
 	private WebElement searchedBusinessName;
 	
-		
 	@FindBy(xpath="//*[@id='businesses-list']/div")	
 	private List<WebElement> allLedgersRow;
 		
@@ -73,8 +80,14 @@ public class MyCashbookPage {
 	}
 	
 	
+
+// Add a new business in PL Cashbook
 	public void addNewBusiness(String businessName, String clientCode, String accountsTemplate, String productType){
 		try{
+			//InitializeDriver.driver.findElement(By.cssSelector("#addBusiness")).click();
+			//InitializeDriver.driver.findElement(By.cssSelector("button#addBusiness")).click();
+			//InitializeDriver.driver.findElement(By.cssSelector("button[id='addBusiness']")).click();
+			
 			addNewBusinessBtn.click();
 			Thread.sleep(500);
 			this.businessName.sendKeys(businessName);
@@ -93,6 +106,7 @@ public class MyCashbookPage {
 		}
 	}
 
+	
 //Search the ledger and click the ledger
 	public boolean searchLedger(String ledgerName){
 		
@@ -103,7 +117,7 @@ public class MyCashbookPage {
 				keywordLedger.sendKeys(Keys.ENTER);
 				Thread.sleep(500);
 				if(allLedgersRow.size()>0){
-					Assert.assertEquals(firstRow.getText(), ledgerName, "Ledger is not available");
+					Assert.assertEquals(firstRow.getText(), ledgerName, "Ledger is not available.");
 					return true;
 					}else{
 						return false;
@@ -112,11 +126,13 @@ public class MyCashbookPage {
 					return false;
 				}
 			}catch(Exception ex){
-				ex.printStackTrace();
+				//ex.printStackTrace();
+				System.out.println(ledgerName + " Not Found.");
 				return false;
 			}
 		}
 
+	
 //Search the ledger and click the ledger
 	public void ledgerClick(String ledgerName){
 			

@@ -2,7 +2,7 @@
 <suite name = "PLCashbook" parallel = 'tests'>
 	<test name= "PLCashbook Results firefox">
 		<classes>
-			<parameter name="browser" value="chrome"/>
+			<parameter name="browser" value="firefox"/>
 				<class name="com.plc.testscripts.PLCTest"/>
 					<methods>
 						<include name="loginToCashbookTest"/>
