@@ -25,12 +25,12 @@ public class InitializeDriver {
 			}
 			
 			else if("ie".equalsIgnoreCase(browser)){
-				System.setProperty("webdriver.ie.driver", "D:\\Projects\\Automation\\Workspace\\Library\\IEDriverServer.exe");
+				System.setProperty("webdriver.ie.driver", ".\\lib\\IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
 			}
 			
 			else if("CHROME".equalsIgnoreCase(browser)){
-				System.setProperty("webdriver.chrome.driver", "D:\\Projects\\Automation\\Workspace\\Library\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 				driver = new ChromeDriver();
 			}
 			
@@ -46,16 +46,12 @@ public class InitializeDriver {
 		
 		if("firefox".equalsIgnoreCase(browser)){
 			capability = DesiredCapabilities.firefox();
-			
 			return capability;
-			
 		}
 		
 		else if("ie".equalsIgnoreCase(browser)){
 			capability = DesiredCapabilities.internetExplorer();
-			
 			return capability;
-			
 		}
 		
 		else if("CHROME".equalsIgnoreCase(browser)){
@@ -73,11 +69,9 @@ public class InitializeDriver {
 	
 	
 	
-	
 	public static void getBrowserRemote(String baseURL, String nodeURL, String browser) throws MalformedURLException{
 		
 		driver = new RemoteWebDriver(new URL(nodeURL), InitializeDriver.capability = InitializeDriver.setBrowserRemote(browser));
-		
 		driver.get(baseURL);
 		driver.manage().window().maximize();
 	}

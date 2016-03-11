@@ -28,6 +28,7 @@ public class PLCTest {
 		public MyCashbookPage mcp;
 		public ScreenShotScript sss;
 		
+		
 		@Parameters("browser")
 		@BeforeTest(enabled=true)
 		  public void beforeClass(String browser) {
@@ -45,17 +46,16 @@ public class PLCTest {
 		
 		
 		/*@Parameters("browser")
-		@BeforeTest(enabled=false)
+		@BeforeTest(enabled=true)
 		public void beforeTestInitialize(String browser ) {
 			try {
-				
 				InitializeDriver.getBrowserRemote("https://burwood.cashbook.dev.myob.com", "http://172.25.32.36:5566/wd/hub", browser);
 				InitializeDriver.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			  
 				//http://B1403F2D.TLP.ads.valuelabs.net4445 , http://172.25.32.36:4445
 			
-				lp = PageFactory.initElements(InitializeDriver.driver, CBPLLoginPage.class);
-				hp = PageFactory.initElements(InitializeDriver.driver, CBPLHomePage.class);
+				lp = PageFactory.initElements(InitializeDriver.driver, LoginPage.class);
+				mcp = PageFactory.initElements(InitializeDriver.driver, MyCashbookPage.class);
 				sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
 				
 			} catch (MalformedURLException e) {
@@ -91,7 +91,7 @@ public class PLCTest {
 		
 		@Test(priority = 2, enabled = true)
 		public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE155", "SelAutoTest", "Construction", "Ledger");
+		mcp.addNewBusiness("MIKE157", "SelAutoTest", "Construction", "Ledger");
 		}
 		
 		

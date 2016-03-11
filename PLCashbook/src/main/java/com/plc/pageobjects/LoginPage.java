@@ -27,6 +27,7 @@ public class LoginPage {
 		
 	public void verifyLoginPageTitle(){
 		try{
+			System.out.println(InitializeDriver.driver.getTitle());
 			if(InitializeDriver.driver.getTitle() !=null)
 			{
 				wait.until(ExpectedConditions.visibilityOf(loginBtn));
