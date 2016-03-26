@@ -9,11 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
+import com.thoughtworks.selenium.webdriven.commands.IsAlertPresent;
 
 
 public class LoginPage {
 	
-	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 10);
+	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 30);
 	
 	@FindBy(id="UserName")
 	public WebElement userName;
@@ -40,7 +41,6 @@ public class LoginPage {
 		}
 	}
 		
-		
 	
 	public void loginToPLC(String username, String passwd){
 		try{
@@ -51,8 +51,14 @@ public class LoginPage {
 				password.clear();
 				password.sendKeys(passwd);
 				loginBtn.click();
+				System.out.println(InitializeDriver.driver.toString());
+				if(InitializeDriver.driver.toString().contains("firefox")){
+					wait.until(ExpectedConditions.alertIsPresent());
+					InitializeDriver.driver.switchTo().alert().dismiss();
+				}
 				wait.until(ExpectedConditions.visibilityOf(MyCashbookPage.getAddNewBusinessBtn()));
 				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Cashbook", "Failed login page");
+				System.out.println("Login successfully.");
 			}else{
 				System.out.println("Username and password can't be null.");
 			}
@@ -60,6 +66,7 @@ public class LoginPage {
 			System.out.println("Element is not found ");
 		} catch (Exception e) {
 			System.out.println("Unable to click on element");
+			e.printStackTrace();
 		}
 	}
 

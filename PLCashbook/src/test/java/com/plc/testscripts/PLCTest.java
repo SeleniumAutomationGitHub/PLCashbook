@@ -79,8 +79,6 @@ public class PLCTest {
 			
 			lp.loginToPLC(username, passwd );
 			//Reporter.log("Login into Cashbook by : " + clp.userNameText.getText() + " successfully and navigating to home page");
-			System.out.println("Login successfully.");
-			  	
 			try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
@@ -91,14 +89,14 @@ public class PLCTest {
 		
 		@Test(priority = 2, enabled = true)
 		public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE157", "SelAutoTest", "Construction", "Ledger");
+		mcp.addNewBusiness("MIKE162", "SelAutoTest", "Construction", "Ledger");
 		}
 		
 		
 		@Test(priority = 3, enabled = true)
 		public void searchLedgerTest(){
 			mcp.searchLedger("MIKE138");
-			System.out.println("Searched ledger succefully.");
+			System.out.println("Searched ledger successfully");
 		}
 		
 		@Test(priority = 4, enabled = true)

@@ -86,9 +86,8 @@ public class MyCashbookPage {
 			//InitializeDriver.driver.findElement(By.cssSelector("#addBusiness")).click();
 			//InitializeDriver.driver.findElement(By.cssSelector("button#addBusiness")).click();
 			//InitializeDriver.driver.findElement(By.cssSelector("button[id='addBusiness']")).click();
-			
 			addNewBusinessBtn.click();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			this.businessName.sendKeys(businessName);
 			Thread.sleep(500);
 			this.clientCode.sendKeys(clientCode);
@@ -125,7 +124,7 @@ public class MyCashbookPage {
 					return false;
 				}
 			}catch(Exception ex){
-				//ex.printStackTrace();
+				ex.printStackTrace();
 				System.out.println(ledgerName + " Not Found.");
 				return false;
 			}
