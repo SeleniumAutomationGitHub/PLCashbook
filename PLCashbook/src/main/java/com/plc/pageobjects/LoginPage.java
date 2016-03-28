@@ -51,7 +51,7 @@ public class LoginPage {
 				password.clear();
 				password.sendKeys(passwd);
 				loginBtn.click();
-				System.out.println(InitializeDriver.driver.toString());
+				//System.out.println(InitializeDriver.driver.toString());
 				if(InitializeDriver.driver.toString().contains("firefox")){
 					wait.until(ExpectedConditions.alertIsPresent());
 					InitializeDriver.driver.switchTo().alert().dismiss();

@@ -9,7 +9,7 @@
 						<include name="addNewBusinessTest"/>
 						<include name="searchLedgerTest"/>
 						<include name="ledgerLinkClickTest"/>
-						<exclude name="journalTest"/>
+						<include name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
 
@@ -23,6 +24,9 @@ public class JournalEntryPage {
 	
 	@FindBy(how = How.XPATH,  using = "//*[@id='add-new-journal-entry']")
 	private WebElement journaladdEntryBtn;
+	
+	@FindBy(how = How.CSS, using = ".title.pull-left")
+	private WebElement generalJournalsText;
 	
 	@FindBy(how = How.XPATH,  using = "//*[@id='date']")
 	private WebElement dateField;
@@ -95,18 +99,16 @@ public class JournalEntryPage {
 	
 	
 	public void journalTabClick(){
-		
 		try{
-			Thread.sleep(2000);
 			if(journalTabLink.isDisplayed() && journalTabLink.isEnabled()){
 				journalTabLink.click();
-				Thread.sleep(3000);
-				
-				/*Thread.sleep(3000);
-				journaladdEntryBtn.click();*/
+				wait.until(ExpectedConditions.visibilityOf(journaladdEntryBtn));
+				Assert.assertEquals(generalJournalsText.getText(), "General journals",  "Not navigated to Journal Page");
+				System.out.println("Journal tab clicked successfully.");
 			}
 		}catch(Exception e){
-			System.out.println("Not found the journal link");
+			e.printStackTrace();
+			System.out.println("Journal tab not found.");
 		}
 	}
 	

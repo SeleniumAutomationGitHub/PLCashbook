@@ -15,6 +15,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 
+import com.plc.pageobjects.JournalEntryPage;
 import com.plc.pageobjects.LoginPage;
 import com.plc.pageobjects.MyCashbookPage;
 import com.plc.util.DriverScriptExcel;
@@ -24,9 +25,10 @@ import com.plc.util.ScreenShotScript;
 
 public class PLCTest {
 	
-		public LoginPage lp;
-		public MyCashbookPage mcp;
-		public ScreenShotScript sss;
+		private LoginPage lp;
+		private MyCashbookPage mcp;
+		private JournalEntryPage jep;
+		private ScreenShotScript sss;
 		
 		
 		@Parameters("browser")
@@ -41,7 +43,9 @@ public class PLCTest {
 			
 			lp = PageFactory.initElements(InitializeDriver.driver, LoginPage.class);
 			mcp = PageFactory.initElements(InitializeDriver.driver, MyCashbookPage.class);
+			jep = PageFactory.initElements(InitializeDriver.driver, JournalEntryPage.class);
 			sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
+			
 		}
 		
 		
@@ -89,7 +93,7 @@ public class PLCTest {
 		
 		@Test(priority = 2, enabled = true)
 		public void addNewBusinessTest(){
-		mcp.addNewBusiness("MIKE162", "SelAutoTest", "Construction", "Ledger");
+		mcp.addNewBusiness("MIKE164", "SelAutoTest", "Construction", "Ledger");
 		}
 		
 		
@@ -101,17 +105,16 @@ public class PLCTest {
 		
 		@Test(priority = 4, enabled = true)
 		public void ledgerLinkClickTest(){
-			mcp.ledgerClick("MIKE141");
+			mcp.ledgerClick("MIKE164");
 		}
 		
-		
-	/*	
-	@Test(priority = 3, enabled = true)
-	public void journalTest(){
-			mcp.journalTabClick();
+	
+		@Test(priority = 5, enabled = true)
+		public void journalTest(){
+			jep.journalTabClick();
 		}
 
-
+/*
 	@DataProvider(name = "Transcations")
 	public Object[][] transData(){
 		

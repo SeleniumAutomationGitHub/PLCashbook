@@ -131,7 +131,7 @@ public class MyCashbookPage {
 		}
 
 	
-//Search the ledger and click the ledger
+//Click the ledger once it is available in the grid
 	public void ledgerClick(String ledgerName){
 			
 		try{
