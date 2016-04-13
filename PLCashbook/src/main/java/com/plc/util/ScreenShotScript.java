@@ -15,14 +15,19 @@ public class ScreenShotScript {
 	//To get the current system date and time
 	public String getDateTime(String dateTimeFormat){
 		try{
-			DateFormat df = new SimpleDateFormat(dateTimeFormat);
-			Date dt = new Date();
-			dateTime = df.format(dt);
-			return dateTime;
+			if(dateTimeFormat != null){
+				DateFormat df = new SimpleDateFormat(dateTimeFormat);
+				Date dt = new Date();
+				dateTime = df.format(dt);
+				return dateTime;
+			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
+			System.out.println("Null should not be accepted.");
 			return null;
 		}
+		return null;
 	}
 	
 	
@@ -38,7 +43,14 @@ public class ScreenShotScript {
 			e.printStackTrace();
 			
 		}
+	}
+	
+	
+	public static void main(String[] args){
 		
+		
+		String dateti = new ScreenShotScript().getDateTime("");
+		System.out.println(dateti);
 	}
 	
 }
