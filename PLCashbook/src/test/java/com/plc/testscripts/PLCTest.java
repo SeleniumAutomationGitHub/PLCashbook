@@ -142,7 +142,8 @@ public class PLCTest {
 		
 	}
 */	
-	@Test(dependsOnMethods = { "addNewBusinessTest" }, priority = 7, enabled = true)
+	//@Test(dependsOnMethods = { "addNewBusinessTest" }, priority = 7, enabled = true)
+	@Test(priority = 7, enabled = true)
 	public void logOutTest(){
 		mcp.logOut();
 	}

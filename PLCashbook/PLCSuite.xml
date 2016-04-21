@@ -6,10 +6,10 @@
 				<class name="com.plc.testscripts.PLCTest"/>
 					<methods>
 						<include name="loginToCashbookTest"/>
-						<include name="addNewBusinessTest"/>
+						<exclude name="addNewBusinessTest"/>
 						<include name="searchLedgerTest"/>
-						<include name="ledgerLinkClickTest"/>
-						<include name="journalTest"/>
+						<exclude name="ledgerLinkClickTest"/>
+						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
