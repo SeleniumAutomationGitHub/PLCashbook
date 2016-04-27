@@ -60,8 +60,6 @@ public class LoginPage {
 					if (PageElements.isAlertPresent()){
 						wait.until(ExpectedConditions.alertIsPresent());
 						InitializeDriver.driver.switchTo().alert().dismiss();
-					}else {
-						System.out.println("Alert message is coming");
 					}
 				}
 				wait.until(ExpectedConditions.visibilityOf(MyCashbookPage.getAddNewBusinessBtn()));
