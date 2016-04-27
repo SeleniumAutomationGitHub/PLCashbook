@@ -10,6 +10,7 @@ import org.testng.Assert;
 
 import com.plc.util.InitializeDriver;
 import com.thoughtworks.selenium.webdriven.commands.IsAlertPresent;
+import com.plc.util.*;
 
 
 public class LoginPage {
@@ -52,9 +53,16 @@ public class LoginPage {
 				password.sendKeys(passwd);
 				loginBtn.click();
 				//System.out.println(InitializeDriver.driver.toString());
+
+				//To handle unknown alert message in firefox browser
 				if(InitializeDriver.driver.toString().contains("firefox")){
-					wait.until(ExpectedConditions.alertIsPresent());
-					InitializeDriver.driver.switchTo().alert().dismiss();
+
+					if (PageElements.isAlertPresent()){
+						wait.until(ExpectedConditions.alertIsPresent());
+						InitializeDriver.driver.switchTo().alert().dismiss();
+					}else {
+						System.out.println("Alert message is coming");
+					}
 				}
 				wait.until(ExpectedConditions.visibilityOf(MyCashbookPage.getAddNewBusinessBtn()));
 				Assert.assertEquals(InitializeDriver.driver.getTitle(), "Cashbook", "Failed login page");
