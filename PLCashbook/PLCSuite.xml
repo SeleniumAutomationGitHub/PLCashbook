@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name = "PLCashbook" parallel = 'tests'>
-	<test name= "PLCashbook Results firefox">
+	<!--<test name= "PLCashbook Results firefox">
 		<classes>
 			<parameter name="browser" value="firefox"/>
 				<class name="com.plc.testscripts.PLCTest"/>
@@ -17,22 +17,47 @@
 						<include name="getFailedScreenShot"/>
 					</methods>
 		</classes>
-	</test>
-	
-	<!--<test name= "CashbookPL Results Chrome">
+	</test>-->
+
+
+	<test name= "PLCashbook Results Chrome">
 		<classes>
 			<parameter name="browser" value="chrome"/>
-				<class name="com.cashbook.testscripts.CBPLTest"/>
-				
+				<class name="com.plc.testscripts.PLCTest"/>
 					<methods>
 						<include name="loginToCashbookTest"/>
+						<exclude name="addNewBusinessTest"/>
+						<include name="searchLedgerTest"/>
+						<exclude name="ledgerLinkClickTest"/>
 						<exclude name="journalTest"/>
 						<exclude name="journalLineEntryTest"/>
 						<exclude name="deleteTest"/>
 						<exclude name="transactionsCountTest"/>
+						<include name="logOutTest"/>
 						<include name="getFailedScreenShot"/>
 					</methods>
 		</classes>
+	</test>
+
+
+	<!--<test name= "PLCashbook Results IE">
+		<classes>
+			<parameter name="browser" value="ie"/>
+			<class name="com.plc.testscripts.PLCTest"/>
+			<methods>
+				<include name="loginToCashbookTest"/>
+				<exclude name="addNewBusinessTest"/>
+				<include name="searchLedgerTest"/>
+				<exclude name="ledgerLinkClickTest"/>
+				<exclude name="journalTest"/>
+				<exclude name="journalLineEntryTest"/>
+				<exclude name="deleteTest"/>
+				<exclude name="transactionsCountTest"/>
+				<include name="logOutTest"/>
+				<include name="getFailedScreenShot"/>
+			</methods>
+		</classes>
 	</test>-->
+
 	
 </suite>
