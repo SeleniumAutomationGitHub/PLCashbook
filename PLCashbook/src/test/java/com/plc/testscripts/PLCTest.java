@@ -1,19 +1,5 @@
 package com.plc.testscripts;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
-
-import jxl.read.biff.BiffException;
-
-import org.openqa.selenium.support.PageFactory;
-import org.testng.ITestResult;
-import org.testng.Reporter;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
 
 import com.plc.pageobjects.JournalEntryPage;
 import com.plc.pageobjects.LoginPage;
@@ -21,6 +7,12 @@ import com.plc.pageobjects.MyCashbookPage;
 import com.plc.util.DriverScriptExcel;
 import com.plc.util.InitializeDriver;
 import com.plc.util.ScreenShotScript;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.*;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class PLCTest {

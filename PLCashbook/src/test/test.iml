@@ -8,5 +8,18 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="main" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.27" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:2.52.0" level="project" />
+    <orderEntry type="module-library" scope="TEST">
+      <library name="testng">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/jcommander.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:2.52.0" level="project" />
   </component>
 </module>

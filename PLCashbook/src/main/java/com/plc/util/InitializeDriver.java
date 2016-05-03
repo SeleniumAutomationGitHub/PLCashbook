@@ -1,8 +1,5 @@
 package com.plc.util;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +8,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class InitializeDriver {
 	
@@ -35,7 +35,7 @@ public class InitializeDriver {
 			}
 			
 			else{
-				driver = new FirefoxDriver();
+				System.out.println("No browser entered.");
 			}
 				return driver;
 		}
