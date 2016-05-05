@@ -1,7 +1,6 @@
 package com.plc.pageobjects;
 
-import java.util.List;
-
+import com.plc.util.InitializeDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.plc.util.InitializeDriver;
+import java.util.List;
 
 public class JournalEntryPage {
 	
@@ -74,7 +73,8 @@ public class JournalEntryPage {
 	@FindBy(how = How.XPATH,  using = "//*[@id='general-journal-lines-table']/div/table/tbody/tr[2]/td[3]/div/input[@id='debit_amount']")
 	private WebElement firstLineAccountCodeDebit;
 	
-	@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2]")
+	//@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2]")
+	@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2][@class='btn btn-primary save-general-journal']")
 	private WebElement addBtn;
 	
 	
