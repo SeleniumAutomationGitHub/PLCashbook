@@ -1,7 +1,6 @@
 package com.plc.pageobjects;
 
-import java.util.List;
-
+import com.plc.util.InitializeDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.plc.util.InitializeDriver;
+import java.util.List;
 
 public class JournalEntryPage {
 	
@@ -138,7 +137,6 @@ public class JournalEntryPage {
 			Thread.sleep(1000);
 			firstLineAccountCodeCredit.sendKeys(creditDebitAmount);
 			
-			
 			Thread.sleep(2000);
 			secondLineAccountCodeDrop.click();
 			
@@ -154,6 +152,7 @@ public class JournalEntryPage {
 			Thread.sleep(2000);
 			addBtn.click();
 			Thread.sleep(2000);
+
 			
 		} catch(Exception e){
 			e.printStackTrace();

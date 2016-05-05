@@ -1,12 +1,5 @@
 package com.plc.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.WriteAbortedException;
-
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -14,6 +7,10 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class DriverScriptExcel {
 	
@@ -65,7 +62,6 @@ public class DriverScriptExcel {
 			
 		for(int i = 0; i < objData.length; i++){
 			for(int j = 0; j < objData[i].length; j++){
-				
 				Label lb = new Label(j, i+1, objData[i][j].toString());
 				wsh.addCell(lb);
 			}
