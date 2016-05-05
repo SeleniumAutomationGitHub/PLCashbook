@@ -17,23 +17,23 @@
 						<include name="getFailedScreenShot"/>
 					</methods>
 		</classes>
-	</test>
--->
+	</test>-->
+
 	<test name= "PLCashbook Results Chrome">
 		<classes>
 			<parameter name="browser" value="chrome"/>
-				<class name="com.plc.testscripts.PLCTest"/>
-				<methods>
-					<include name="loginToCashbookTest"/>
-					<exclude name="addNewBusinessTest"/>
-					<exclude name="searchLedgerTest"/>
-					<include name="ledgerLinkClickTest"/>
-					<include name="journalTest"/>
-					<include name="journalLineEntryTest"/>
-					<exclude name="deleteTest"/>
-					<exclude name="transactionsCountTest"/>
-					<exclude name="logOutTest"/>
-					<include name="getFailedScreenShot"/>
+			<class name="com.plc.testscripts.PLCTest"/>
+			<methods>
+				<include name="loginToCashbookTest"/>
+				<exclude name="addNewBusinessTest"/>
+				<include name="searchLedgerTest"/>
+				<exclude name="ledgerLinkClickTest"/>
+				<exclude name="journalTest"/>
+				<exclude name="journalLineEntryTest"/>
+				<exclude name="deleteTest"/>
+				<exclude name="transactionsCountTest"/>
+				<include name="logOutTest"/>
+				<include name="getFailedScreenShot"/>
 			</methods>
 		</classes>
 	</test>
@@ -56,4 +56,5 @@
 			</methods>
 		</classes>
 	</test>-->
+
 </suite>
