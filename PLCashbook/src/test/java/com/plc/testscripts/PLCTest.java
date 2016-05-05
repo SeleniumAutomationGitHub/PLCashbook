@@ -20,7 +20,7 @@ public class PLCTest {
 		private LoginPage lp;
 		private MyCashbookPage mcp;
 		private JournalEntryPage jep;
-		private ScreenShotScript sss;
+		//private ScreenShotScript sss;
 		
 		
 		@Parameters("browser")
@@ -36,7 +36,7 @@ public class PLCTest {
 			lp = PageFactory.initElements(InitializeDriver.driver, LoginPage.class);
 			mcp = PageFactory.initElements(InitializeDriver.driver, MyCashbookPage.class);
 			jep = PageFactory.initElements(InitializeDriver.driver, JournalEntryPage.class);
-			sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
+			//sss = PageFactory.initElements(InitializeDriver.driver, ScreenShotScript.class);
 			
 		}
 		
@@ -97,7 +97,7 @@ public class PLCTest {
 		
 		@Test(priority = 4, enabled = true)
 		public void ledgerLinkClickTest(){
-			mcp.ledgerClick("MIKE164");
+			mcp.ledgerClick("MIKE165");
 		}
 		
 	
@@ -106,22 +106,19 @@ public class PLCTest {
 			jep.journalTabClick();
 		}
 
+
+		@DataProvider(name = "Transcations")
+		public Object[][] transData()throws Exception{
+			return DriverScriptExcel.getTestData(".\\src\\test\\resources\\InputTestData.xls", "JournalTestData");
+		}
+
+		@Test(dataProvider = "Transcations", priority = 6, enabled = true)
+		public void journalLineEntryTest(String notes, String firstLineDesc, String creditDebitAmount, String secondLineDesc){
+			jep.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
+			System.out.println("Journal entries created successfully.");
+		}
+
 /*
-	@DataProvider(name = "Transcations")
-	public Object[][] transData(){
-		
-		return ExcelUtil.getTestData(".\\input\\CashbookTestData.xls", "loadone");
-		
-	}
-
-
-	@Test(dataProvider = "Transcations", priority = 4, enabled = true)
-	public void journalLineEntryTest(String notes, String firstLineDesc, String creditDebitAmount, String secondLineDesc){
-		mcp.journalLineEntry(notes, firstLineDesc, creditDebitAmount, secondLineDesc);
-		
-	}
-
-
 	@Test(priority = 5, enabled = true)
 	public void deleteTest() throws Exception{
 		mcp.deleteTransaction();
