@@ -152,7 +152,7 @@ public class JournalEntryPage {
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
 			Thread.sleep(2000);
-			addBtn.click();
+			//addBtn.click();
 			Thread.sleep(2000);
 			
 		} catch(Exception e){
