@@ -74,7 +74,8 @@ public class JournalEntryPage {
 	private WebElement firstLineAccountCodeDebit;
 	
 	//@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2]")
-	@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2][@class='btn btn-primary save-general-journal']")
+	//@FindBy(how = How.XPATH,  using = "//*[@id='new-journal-entry-details']/div/div/div[6]/div[2]/div/a[2][@class='btn btn-primary save-general-journal']")
+	@FindBy(how = How.CSS, using = "a[class='btn btn-primary save-general-journal']")
 	private WebElement addBtn;
 	
 	
@@ -152,7 +153,7 @@ public class JournalEntryPage {
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
 			Thread.sleep(2000);
-			//addBtn.click();
+			addBtn.click();
 			Thread.sleep(2000);
 			
 		} catch(Exception e){
