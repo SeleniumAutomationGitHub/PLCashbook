@@ -120,8 +120,8 @@ public class JournalEntryPage {
 			journaladdEntryBtn.click();
 			
 			Thread.sleep(3000);
-			dateField.click();
-			dateSelect.click();
+			//dateField.click();
+			//dateSelect.click();
 			
 			Thread.sleep(1000);
 			notesField.sendKeys(notes);
