@@ -152,7 +152,8 @@ public class JournalEntryPage {
 			Thread.sleep(1000);
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOf(addBtn));
 			addBtn.click();
 			Thread.sleep(2000);
 			
