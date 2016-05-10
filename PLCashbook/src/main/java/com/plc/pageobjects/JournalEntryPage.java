@@ -1,6 +1,7 @@
 package com.plc.pageobjects;
 
 import com.plc.util.InitializeDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -153,16 +154,12 @@ public class JournalEntryPage {
 			Thread.sleep(1000);
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
-			//Thread.sleep(2000);
-			//wait.until(ExpectedConditions.visibilityOf(addBtn));
-			//addBtn.click();
-
 			JavascriptExecutor js = (JavascriptExecutor)InitializeDriver.driver;
-			js.executeScript("window.scrollBy(0,50)","");
-			Thread.sleep(2000);
-			//addBtn.click();
-			js.executeScript("arguments[0].click();", addBtn);
-			Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,100)","");
+			addBtn.click();
+			//Control will wait untill the Cancel button is not visible
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".btn.btn-default.cancel-general-journal")));
+			Assert.assertEquals(journaladdEntryBtn.isDisplayed(), true, "Journal not added.");
 			
 		} catch(Exception e){
 			e.printStackTrace();
