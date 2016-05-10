@@ -155,7 +155,7 @@ public class JournalEntryPage {
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
 			JavascriptExecutor js = (JavascriptExecutor)InitializeDriver.driver;
-			js.executeScript("window.scrollBy(0,100)","");
+			js.executeScript("window.scrollBy(0,50)","");
 			addBtn.click();
 			//Control will wait untill the Cancel button is not visible
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".btn.btn-default.cancel-general-journal")));
