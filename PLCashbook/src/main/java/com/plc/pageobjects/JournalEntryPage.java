@@ -1,6 +1,7 @@
 package com.plc.pageobjects;
 
 import com.plc.util.InitializeDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -153,9 +154,15 @@ public class JournalEntryPage {
 			firstLineAccountCodeDebit.sendKeys(creditDebitAmount);
 			
 			//Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOf(addBtn));
-			addBtn.click();
+			//wait.until(ExpectedConditions.visibilityOf(addBtn));
+			//addBtn.click();
+
+			JavascriptExecutor js = (JavascriptExecutor)InitializeDriver.driver;
+			js.executeScript("window.scrollBy(0,50)","");
 			Thread.sleep(2000);
+			//addBtn.click();
+			js.executeScript("arguments[0].click();", addBtn);
+			Thread.sleep(3000);
 			
 		} catch(Exception e){
 			e.printStackTrace();
