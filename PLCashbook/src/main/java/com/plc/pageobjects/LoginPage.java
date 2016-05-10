@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 
 public class LoginPage {
 	
-	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 30);
+	private WebDriverWait wait = new WebDriverWait(InitializeDriver.driver, 100);
 	
 	@FindBy(id="UserName")
 	public WebElement userName;
@@ -52,9 +52,9 @@ public class LoginPage {
 				loginBtn.click();
 				//System.out.println(InitializeDriver.driver.toString());
 
+
 				//To handle unknown alert message in firefox browser
 				if(InitializeDriver.driver.toString().contains("firefox")){
-
 					if (PageElements.isAlertPresent()){
 						wait.until(ExpectedConditions.alertIsPresent());
 						InitializeDriver.driver.switchTo().alert().dismiss();

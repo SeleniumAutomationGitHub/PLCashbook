@@ -21,7 +21,7 @@
 
 	<test name= "PLCashbook Results Chrome">
 		<classes>
-			<parameter name="browser" value="firefox"/>
+			<parameter name="browser" value="chrome"/>
 			<class name="com.plc.testscripts.PLCTest"/>
 			<methods>
 				<include name="loginToCashbookTest"/>
