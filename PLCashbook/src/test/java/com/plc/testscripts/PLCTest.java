@@ -118,13 +118,13 @@ public class PLCTest {
 			System.out.println("Journal entries created successfully.");
 		}
 
-
-	@Test(priority = 7, enabled = true)
+/*
+	@Test(priority = 5, enabled = true)
 	public void deleteTest() throws Exception{
-		jep.deleteTransaction();
+		mcp.deleteTransaction();
 	}
 	
-/*
+
 	@Test(priority = 6, enabled = true)
 	public void transactionsCountTest() throws Exception{
 		mcp.transactionsCount();

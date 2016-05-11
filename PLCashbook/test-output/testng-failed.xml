@@ -5,7 +5,11 @@
     <classes>
       <class name="com.plc.testscripts.PLCTest">
         <methods>
-          <include name="journalLineEntryTest"/>
+          <include name="searchLedgerTest"/>
+          <include name="addNewBusinessTest"/>
+          <include name="logOutTest"/>
+          <include name="loginToCashbookTest"/>
+          <include name="ledgerLinkClickTest"/>
         </methods>
       </class> <!-- com.plc.testscripts.PLCTest -->
     </classes>

@@ -1,79 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
+    <line>
+      <![CDATA[Verified the Login Page Title Successfully...!]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="587" started-at="2016-05-11T05:16:33Z" finished-at="2016-05-11T05:16:34Z">
+  <suite name="PLCashbook" duration-ms="125577" started-at="2016-04-27T18:16:27Z" finished-at="2016-04-27T18:18:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="587" started-at="2016-05-11T05:16:33Z" finished-at="2016-05-11T05:16:34Z">
+    <test name="PLCashbook Results firefox" duration-ms="125577" started-at="2016-04-27T18:16:27Z" finished-at="2016-04-27T18:18:32Z">
       <class name="com.plc.testscripts.PLCTest">
-        <test-method status="FAIL" signature="beforeClass(java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@7bb58ca3]" name="beforeClass" is-config="true" duration-ms="0" started-at="2016-05-11T10:46:33Z" finished-at="2016-05-11T10:46:33Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'browser' is required by @Configuration on method beforeClass but has not been marked @Optional or defined
-in C:\Users\SUMANTA\AppData\Local\Temp\testng-eclipse--1625369340\testng-customsuite.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'browser' is required by @Configuration on method beforeClass but has not been marked @Optional or defined
-in C:\Users\SUMANTA\AppData\Local\Temp\testng-eclipse--1625369340\testng-customsuite.xml
-	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
-	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:86)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:199)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:641)
-	at org.testng.TestRunner.run(TestRunner.java:609)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="SKIP" signature="journalLineEntryTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@7bb58ca3]" name="journalLineEntryTest" duration-ms="7" started-at="2016-05-11T10:46:34Z" data-provider="Transcations" finished-at="2016-05-11T10:46:34Z">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="beforeClass" is-config="true" duration-ms="29349" started-at="2016-04-27T23:46:27Z" finished-at="2016-04-27T23:46:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Test 30]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Desc 30]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[3000]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Desc 31]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- journalLineEntryTest -->
-        <test-method status="SKIP" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@7bb58ca3]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-05-11T10:46:34Z" finished-at="2016-05-11T10:46:34Z">
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="loginToCashbookTest" duration-ms="69473" started-at="2016-04-27T23:46:56Z" data-provider="Authentication" finished-at="2016-04-27T23:48:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vlau.firmuser5@myob.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Verified the Login Page Title Successfully...!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- loginToCashbookTest -->
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="getFailedScreenShot" is-config="true" duration-ms="2" started-at="2016-04-27T23:48:06Z" finished-at="2016-04-27T23:48:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginToCashbookTest status=SUCCESS method=PLCTest.loginToCashbookTest(java.lang.String, java.lang.String)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2] output=Verified the Login Page Title Successfully...!]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFailedScreenShot -->
+        <test-method status="PASS" signature="searchLedgerTest()[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="searchLedgerTest" duration-ms="1820" started-at="2016-04-27T23:48:06Z" finished-at="2016-04-27T23:48:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchLedgerTest -->
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-04-27T23:48:08Z" finished-at="2016-04-27T23:48:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=searchLedgerTest status=SUCCESS method=PLCTest.searchLedgerTest()[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFailedScreenShot -->
+        <test-method status="PASS" signature="logOutTest()[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="logOutTest" duration-ms="24519" started-at="2016-04-27T23:48:08Z" finished-at="2016-04-27T23:48:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutTest -->
+        <test-method status="PASS" signature="getFailedScreenShot(org.testng.ITestResult)[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2]" name="getFailedScreenShot" is-config="true" duration-ms="0" started-at="2016-04-27T23:48:32Z" finished-at="2016-04-27T23:48:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=logOutTest status=SUCCESS method=PLCTest.logOutTest()[pri:0, instance:com.plc.testscripts.PLCTest@2c8d66b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getFailedScreenShot -->
       </class> <!-- com.plc.testscripts.PLCTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- PLCashbook Results firefox -->
+  </suite> <!-- PLCashbook -->
 </testng-results>
