@@ -32,7 +32,7 @@
 				<include name="journalLineEntryTest"/>
 				<exclude name="deleteTest"/>
 				<exclude name="transactionsCountTest"/>
-				<include name="logOutTest"/>
+				<exclude name="logOutTest"/>
 				<include name="getFailedScreenShot"/>
 			</methods>
 		</classes>

@@ -141,7 +141,6 @@ public class JournalEntryPage {
 			Thread.sleep(1000);
 			firstLineAccountCodeCredit.sendKeys(creditDebitAmount);
 			
-			
 			Thread.sleep(2000);
 			secondLineAccountCodeDrop.click();
 			
@@ -157,7 +156,7 @@ public class JournalEntryPage {
 			JavascriptExecutor js = (JavascriptExecutor)InitializeDriver.driver;
 			js.executeScript("window.scrollBy(0,50)","");
 			addBtn.click();
-			//Control will wait untill the Cancel button is not visible
+			//Control will wait until the Cancel button is not visible
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".btn.btn-default.cancel-general-journal")));
 			Assert.assertEquals(journaladdEntryBtn.isDisplayed(), true, "Journal not added.");
 			
@@ -168,7 +167,6 @@ public class JournalEntryPage {
 	}
 
 
-	
 	
 	public void deleteTransaction() throws Exception{
 		int rowSize=0;
@@ -183,7 +181,6 @@ public class JournalEntryPage {
 			//System.out.println("Row size is : " + rowSize );
 			
 			for(int i = 0; i < rowSize || i > rowSize; i++){
-				
 				if(rowSize > 49){
 					actObj.sendKeys(Keys.ARROW_DOWN).build().perform();
 					Thread.sleep(500);
@@ -191,15 +188,12 @@ public class JournalEntryPage {
 				
 				//actObj.sendKeys(Keys.PAGE_UP).build().perform();
 				if(lineTrans.isDisplayed() && lineTrans.isEnabled() ){
-					
 					lineTrans.click();
 					//Thread.sleep(500);
 					wait.until(ExpectedConditions.visibilityOf(deleteLineTrans));
-					
 					deleteLineTrans.click();
 					//Thread.sleep(200);
 					wait.until(ExpectedConditions.visibilityOf(confirmDeleteLineTrans));
-					
 					confirmDeleteLineTrans.click();
 					//System.out.println("Yes Delete");
 				}
