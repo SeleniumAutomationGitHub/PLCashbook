@@ -155,7 +155,8 @@ public class JournalEntryPage {
 			
 			JavascriptExecutor js = (JavascriptExecutor)InitializeDriver.driver;
 			js.executeScript("window.scrollBy(0,50)","");
-			addBtn.click();
+			//addBtn.click();
+			js.executeScript("arguments[0].click", addBtn);
 			//Control will wait until the Cancel button is not visible
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".btn.btn-default.cancel-general-journal")));
 			Assert.assertEquals(journaladdEntryBtn.isDisplayed(), true, "Journal not added.");
