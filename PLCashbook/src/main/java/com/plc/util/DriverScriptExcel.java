@@ -1,12 +1,5 @@
 package com.plc.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.WriteAbortedException;
-
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -14,6 +7,10 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class DriverScriptExcel {
 	
@@ -84,10 +81,7 @@ public class DriverScriptExcel {
 		wwb.close();
 	}	
 	
-	
-	
-	
-	
+
 	/*public static void main(String[] args) throws Exception{
 		
 		Object[][] org = DriverScriptExcel.getTestData(".\\src\\test\\resources\\InputTestData.xls", "login");
